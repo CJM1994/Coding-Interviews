@@ -7,14 +7,14 @@ const array3 = [1, 22, 3, 6] // should return null
 const sum = 11
 
 // Bad brute force solution with O(n^2)
-const twoSumIndexes = (array) => {
+const twoSum = (array, sum) => {
   let solution = null
   if (array.length < 2) {
     return solution
   }
   array.forEach((num, i1) => {
     const complimentNum = sum - num
-    for (i2 = i1; i2 < array.length - 1; i2++) {
+    for (i2 = i1 + 1; i2 < array.length; i2++) {
       if (array[i2] === complimentNum) {
         solution = [i1, i2]
       }
@@ -26,3 +26,6 @@ const twoSumIndexes = (array) => {
 console.log(twoSumIndexes(array1)) // returns [2,3]
 console.log(twoSumIndexes(array2)) // returns null (faster)
 console.log(twoSumIndexes(array3)) // returns null
+
+// Space Complexity O(1)
+// Time Complexity O(n^2)
