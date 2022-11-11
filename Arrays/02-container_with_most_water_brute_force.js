@@ -6,7 +6,8 @@
 
 // Return the maximum amount of water a container can store.
 
-const array = [7, 1, 2, 3, 9]
+const heights = [7, 1, 2, 3, 9]
+const heights2 = [5]
 // should return 7 (max height) * 4 (width) = 28
 
 // Steps:
@@ -15,20 +16,19 @@ const array = [7, 1, 2, 3, 9]
 // at end return largest max area
 
 // This is a poor solution with high time complexity
-const maxArea = array => {
+const maxArea = heights => {
   let maxArea = 0
-  for (let i1 = 0; i1 < array.length -1; i1++) {
-    for (let i2 = i1 +1; i2 < array.length; i2++) {
-      let thisMaxArea = Math.min(array[i1], array[i2]) * Math.abs(i1 - i2)
-      if (thisMaxArea > maxArea) {
-        maxArea = thisMaxArea
-      }
+  for (let i1 = 0; i1 < heights.length -1; i1++) {
+    for (let i2 = i1 +1; i2 < heights.length; i2++) {
+      let thisMaxArea = Math.min(heights[i1], heights[i2]) * (i2 -i1)
+      maxArea = Math.max(thisMaxArea, maxArea)
     }
   }
   return maxArea
 }
 
-console.log(maxArea(array))
+console.log(maxArea(heights)) // should return 28
+console.log(maxArea(heights2)) // should return 0
 
 // Space Complexity O(1)
 // Time Complexity O(n^2)
