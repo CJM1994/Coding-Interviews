@@ -9,13 +9,16 @@ const array = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1] // solution should be 6
 // Value of water trapped will be the lower (elevation * width) - sum of middle elevations
 // Repeat until end of array
 
+// Move a pointer one index at a time and find the greatest value to the left and right
+// water contained in that index will be Math.min(left, right)
+
 const trappedRainwater = (elevations) => {
-  let startTrapIndex = 0
-  let endTrapIndex = 0
-  
-  elevations.forEach(e => {
-    if (e > startTrapIndex) {
-      startTrapIndex = e
-    }
+  const firstInstanceOfElevation = {1: 1}
+
+  elevations.forEach((e, i) => {
+
   })
+  
 }
+
+console.log(trappedRainwater(array))
